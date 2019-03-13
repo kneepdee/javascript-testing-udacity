@@ -20,10 +20,15 @@ describe("Address book", function() {
 })
 
 describe("Async Address Book", function() {
-  it("should grab initial contatcts", function() {
-    var addressBook = new AddressBook()
+  var addressBook = new AddressBook()
 
-    addressBook.getInitialContacts()
+  beforeEach(function(done) {
+    addressBook.getInitialContacts(function() {
+      done()
+    })
+  })
+  it("should grab initial contatcts", function(done) {
     expect(addressBook.initialComplete).toBe(true)
+    done()
   })
 })
