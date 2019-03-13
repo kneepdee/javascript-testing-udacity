@@ -1,8 +1,12 @@
 function AddressBook() {
-  this.addContact = function() {
-    console.log("add a contact")
+  this.contacts = []
+  this.addContact = function(contact) {
+    this.contacts.push(contact)
   }
-  this.getContact = function() {
-    console.log("get a contact")
+  this.getContact = function(index) {
+    return this.contacts[index]
+  }
+  this.deleteContact = function(index) {
+    this.contacts.splice(index, 1)
   }
 }
